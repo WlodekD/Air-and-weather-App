@@ -1,1 +1,2 @@
-console.log('działa111112222222');
+import './api/getGeolocationData.js'
+import './components/mainComponent.jsx';
