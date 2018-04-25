@@ -4,8 +4,8 @@ class AirQualityModule extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            lat: 0,
-            long: 0,
+            lat: this.props.lat,
+            long: this.props.lon,
             closestStationName: '',
             c6h6: '',
             co: '',
@@ -14,20 +14,59 @@ class AirQualityModule extends React.Component{
             pm25: '',
             airColor: 'black',
 
-            divInfo1: 'none',
-            hideDiv1: 'flex',
+            divInfo1: 'hidden',
+            hideDiv1: 'visible',
+            opacityInfo1: 0,
+            opacityData1: 1,
 
-            divInfo2: 'none',
-            hideDiv2: 'flex',
+            divInfoWidth1: 0,
+            divInfoHeight1: 0,
+            divDataWidth1: '7rem',
+            fontSize1: 0,
 
-            divInfo3: 'none',
-            hideDiv3: 'flex',
 
-            divInfo4: 'none',
-            hideDiv4: 'flex',
+            divInfo2: 'hidden',
+            hideDiv2: 'visible',
+            opacityInfo2: 0,
+            opacityData2: 1,
 
-            divInfo5: 'none',
-            hideDiv5: 'flex',
+            divInfoWidth2: 0,
+            divInfoHeight2: 0,
+            divDataWidth2: '7rem',
+            fontSize2: 0,
+
+
+            divInfo3: 'hidden',
+            hideDiv3: 'visible',
+            opacityInfo3: 0,
+            opacityData3: 1,
+
+            divInfoWidth3: 0,
+            divInfoHeight3: 0,
+            divDataWidth3: '7rem',
+            fontSize3: 0,
+
+
+            divInfo4: 'hidden',
+            hideDiv4: 'visible',
+            opacityInfo4: 0,
+            opacityData4: 1,
+
+            divInfoWidth4: 0,
+            divInfoHeight4: 0,
+            divDataWidth4: '7rem',
+            fontSize4: 0,
+
+
+            divInfo5: 'hidden',
+            hideDiv5: 'visible',
+            opacityInfo5: 0,
+            opacityData5: 1,
+
+            divInfoWidth5: 0,
+            divInfoHeight5: 0,
+            divDataWidth5: '7rem',
+            fontSize5: 0,
         };
 
     }
@@ -128,142 +167,303 @@ class AirQualityModule extends React.Component{
                 });
         };
 
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(position => {
-                this.setState({
-                    lat: position.coords.latitude.toFixed(4),
-                    long: position.coords.longitude.toFixed(4)
-                });
-            });
-        }
-
         this.showInfo1 = () => {
 
             this.setState({
-                divInfo1: 'flex',
-                hideDiv1: 'none',
+                divInfo1: 'visible',
+                hideDiv1: 'hidden',
+                opacityInfo1: 1,
+                opacityData1: 0,
+                divInfoWidth1: '14rem',
+                divInfoHeight1: '14rem',
+                fontSize1: '0.65rem',
+                divDataWidth1: '0',
 
-                hideDiv2: 'none',
-                hideDiv3: 'none',
-                hideDiv4: 'none',
-                hideDiv5: 'none'
+                hideDiv2: 'hidden',
+                opacityData2: '0',
+                divDataWidth2: '0',
+
+                hideDiv3: 'hidden',
+                opacityData3: '0',
+                divDataWidth3: '0',
+
+                hideDiv4: 'hidden',
+                opacityData4: '0',
+                divDataWidth4: '0',
+
+                hideDiv5: 'hidden',
+                opacityData5: '0',
+                divDataWidth5: '0',
             });
         };
 
         this.hideInfo1 = () => {
 
             this.setState({
-                divInfo1: 'none',
-                hideDiv1: 'flex',
+                divInfo1: 'hidden',
+                hideDiv1: 'visible',
+                opacityInfo1: 0,
+                opacityData1: 1,
+                divInfoWidth1: '0',
+                divInfoHeight1: '0',
+                fontSize1: '0',
+                divDataWidth1: '7rem',
 
-                hideDiv2: 'flex',
-                hideDiv3: 'flex',
-                hideDiv4: 'flex',
-                hideDiv5: 'flex'
+                hideDiv2: 'visible',
+                opacityData2: '1',
+                divDataWidth2: '7rem',
+
+                hideDiv3: 'visible',
+                opacityData3: '1',
+                divDataWidth3: '7rem',
+
+                hideDiv4: 'visible',
+                opacityData4: '1',
+                divDataWidth4: '7rem',
+
+                hideDiv5: 'visible',
+                opacityData5: '1',
+                divDataWidth5: '7rem',
             });
         };
 
         this.showInfo2 = () => {
 
             this.setState({
-                divInfo2: "flex",
-                hideDiv2: 'none',
+                divInfo2: 'visible',
+                hideDiv2: 'hidden',
+                opacityInfo2: 1,
+                opacityData12: 0,
+                divInfoWidth2: '14rem',
+                divInfoHeight2: '14rem',
+                fontSize2: '0.65rem',
+                divDataWidth2: '0',
 
-                hideDiv1: 'none',
-                hideDiv3: 'none',
-                hideDiv4: 'none',
-                hideDiv5: 'none'
+                hideDiv1: 'hidden',
+                opacityData1: '0',
+                divDataWidth1: '0',
+
+                hideDiv3: 'hidden',
+                opacityData3: '0',
+                divDataWidth3: '0',
+
+                hideDiv4: 'hidden',
+                opacityData4: '0',
+                divDataWidth4: '0',
+
+                hideDiv5: 'hidden',
+                opacityData5: '0',
+                divDataWidth5: '0',
             });
         };
 
         this.hideInfo2 = () => {
 
             this.setState({
-                divInfo2: "none",
-                hideDiv2: 'flex',
+                divInfo2: 'hidden',
+                hideDiv2: 'visible',
+                opacityInfo2: 0,
+                opacityData2: 1,
+                divInfoWidth2: '0',
+                divInfoHeight2: '0',
+                fontSize2: '0',
+                divDataWidth2: '7rem',
 
-                hideDiv1: 'flex',
-                hideDiv3: 'flex',
-                hideDiv4: 'flex',
-                hideDiv5: 'flex'
+                hideDiv1: 'visible',
+                opacityData1: '1',
+                divDataWidth1: '7rem',
+
+                hideDiv3: 'visible',
+                opacityData3: '1',
+                divDataWidth3: '7rem',
+
+                hideDiv4: 'visible',
+                opacityData4: '1',
+                divDataWidth4: '7rem',
+
+                hideDiv5: 'visible',
+                opacityData5: '1',
+                divDataWidth5: '7rem',
             });
         };
 
         this.showInfo3 = () => {
 
             this.setState({
-                divInfo3: "flex",
-                hideDiv3: 'none',
+                divInfo3: 'visible',
+                hideDiv3: 'hidden',
+                opacityInfo3: 1,
+                opacityData13: 0,
+                divInfoWidth3: '14rem',
+                divInfoHeight3: '14rem',
+                fontSize3: '0.65rem',
+                divDataWidth3: '0',
 
-                hideDiv1: 'none',
-                hideDiv2: 'none',
-                hideDiv4: 'none',
-                hideDiv5: 'none'
+                hideDiv1: 'hidden',
+                opacityData1: '0',
+                divDataWidth1: '0',
+
+                hideDiv2: 'hidden',
+                opacityData2: '0',
+                divDataWidth2: '0',
+
+                hideDiv4: 'hidden',
+                opacityData4: '0',
+                divDataWidth4: '0',
+
+                hideDiv5: 'hidden',
+                opacityData5: '0',
+                divDataWidth5: '0',
             });
         };
 
         this.hideInfo3 = () => {
 
             this.setState({
-                divInfo3: "none",
-                hideDiv3: 'flex',
+                divInfo3: 'hidden',
+                hideDiv3: 'visible',
+                opacityInfo3: 0,
+                opacityData3: 1,
+                divInfoWidth3: '0',
+                divInfoHeight3: '0',
+                fontSize3: '0',
+                divDataWidth3: '7rem',
 
-                hideDiv1: 'flex',
-                hideDiv2: 'flex',
-                hideDiv4: 'flex',
-                hideDiv5: 'flex'
+                hideDiv1: 'visible',
+                opacityData1: '1',
+                divDataWidth1: '7rem',
+
+                hideDiv2: 'visible',
+                opacityData2: '1',
+                divDataWidth2: '7rem',
+
+                hideDiv4: 'visible',
+                opacityData4: '1',
+                divDataWidth4: '7rem',
+
+                hideDiv5: 'visible',
+                opacityData5: '1',
+                divDataWidth5: '7rem',
             });
         };
 
         this.showInfo4 = () => {
 
             this.setState({
-                divInfo4: "flex",
-                hideDiv4: 'none',
+                divInfo4: 'visible',
+                hideDiv4: 'hidden',
+                opacityInfo4: 1,
+                opacityData14: 0,
+                divInfoWidth4: '14rem',
+                divInfoHeight4: '14rem',
+                fontSize4: '0.65rem',
+                divDataWidth4: '0',
 
-                hideDiv1: 'none',
-                hideDiv2: 'none',
-                hideDiv3: 'none',
-                hideDiv5: 'none'
+                hideDiv1: 'hidden',
+                opacityData1: '0',
+                divDataWidth1: '0',
+
+                hideDiv2: 'hidden',
+                opacityData2: '0',
+                divDataWidth2: '0',
+
+                hideDiv3: 'hidden',
+                opacityData3: '0',
+                divDataWidth3: '0',
+
+                hideDiv5: 'hidden',
+                opacityData5: '0',
+                divDataWidth5: '0',
             });
         };
 
         this.hideInfo4 = () => {
 
             this.setState({
-                divInfo4: "none",
-                hideDiv4: 'flex',
+                divInfo4: 'hidden',
+                hideDiv4: 'visible',
+                opacityInfo4: 0,
+                opacityData4: 1,
+                divInfoWidth4: '0',
+                divInfoHeight4: '0',
+                fontSize4: '0',
+                divDataWidth4: '7rem',
 
-                hideDiv1: 'flex',
-                hideDiv2: 'flex',
-                hideDiv3: 'flex',
-                hideDiv5: 'flex'
+                hideDiv1: 'visible',
+                opacityData1: '1',
+                divDataWidth1: '7rem',
+
+                hideDiv2: 'visible',
+                opacityData2: '1',
+                divDataWidth2: '7rem',
+
+                hideDiv3: 'visible',
+                opacityData3: '1',
+                divDataWidth3: '7rem',
+
+                hideDiv5: 'visible',
+                opacityData5: '1',
+                divDataWidth5: '7rem',
             });
         };
 
         this.showInfo5 = () => {
 
             this.setState({
-                divInfo5: "flex",
-                hideDiv5: 'none',
+                divInfo5: 'visible',
+                hideDiv5: 'hidden',
+                opacityInfo5: 1,
+                opacityData15: 0,
+                divInfoWidth5: '14rem',
+                divInfoHeight5: '14rem',
+                fontSize5: '0.65rem',
+                divDataWidth5: '0',
 
-                hideDiv1: 'none',
-                hideDiv2: 'none',
-                hideDiv3: 'none',
-                hideDiv4: 'none'
+                hideDiv1: 'hidden',
+                opacityData1: '0',
+                divDataWidth1: '0',
+
+                hideDiv2: 'hidden',
+                opacityData2: '0',
+                divDataWidth2: '0',
+
+                hideDiv3: 'hidden',
+                opacityData3: '0',
+                divDataWidth3: '0',
+
+                hideDiv4: 'hidden',
+                opacityData4: '0',
+                divDataWidth4: '0',
             });
         };
 
         this.hideInfo5 = () => {
 
             this.setState({
-                divInfo5: "none",
-                hideDiv5: 'flex',
+                divInfo5: 'hidden',
+                hideDiv5: 'visible',
+                opacityInfo5: 0,
+                opacityData5: 1,
+                divInfoWidth5: '0',
+                divInfoHeight5: '0',
+                fontSize5: '0',
+                divDataWidth5: '7rem',
 
-                hideDiv1: 'flex',
-                hideDiv2: 'flex',
-                hideDiv3: 'flex',
-                hideDiv4: 'flex'
+                hideDiv1: 'visible',
+                opacityData1: '1',
+                divDataWidth1: '7rem',
+
+                hideDiv2: 'visible',
+                opacityData2: '1',
+                divDataWidth2: '7rem',
+
+                hideDiv3: 'visible',
+                opacityData3: '1',
+                divDataWidth3: '7rem',
+
+                hideDiv4: 'visible',
+                opacityData4: '1',
+                divDataWidth4: '7rem',
             });
         };
     }
@@ -389,8 +589,9 @@ class AirQualityModule extends React.Component{
             </div>
             <div className='airQFlexBox'>
 
-                <div onClick={this.hideInfo1} style={{display: this.state.divInfo1, width: '14rem', height: '14rem'}}>
-                    <p className='infoDivParagraph'>
+                <div onClick={this.hideInfo1} style={{visibility: this.state.divInfo1, opacity: this.state.opacityInfo1,
+                    width: this.state.divInfoWidth1, height: this.state.divInfoHeight1, transition: 'opacity 2000ms, visibility 2000ms'}}>
+                    <p className='infoDivParagraph' style={{fontSize: this.state.fontSize1}}>
                         <strong>Benzen</strong> – uważany za bardzo toksyczny i rakotwórczy co potwierdzają liczne badania.
                         Czy jest się czego bać? Odnotowywane największe stężenia benzenu w Polsce (22 µg/m3) są o ok 4 tyś.
                         razy słabsze od dawek mogących być niebezpiecznymi dla naszego zdrowia (80 mg/m3). Czy kompletnie
@@ -399,14 +600,16 @@ class AirQualityModule extends React.Component{
                         <a href="http://www.chemiaibiznes.com.pl/aktualnosc/benzen-w-powietrzu-czy-jest-sie-czego-bac" target='_blank'>źródło</a>
                     </p>
                 </div>
-                <div className='divInfo' onClick={this.showInfo1} style={{display: this.state.hideDiv1}}>
+                <div className='divInfo' onClick={this.showInfo1} style={{visibility: this.state.hideDiv1,
+                    opacity: this.state.opacityData1, width: this.state.divDataWidth1}}>
                     <p>Wskaźnik chh6</p>
                     <p style={{fontWeight: '700', color: airCol1, fontSize: '.9rem'}}>{this.state.c6h6}</p>
                 </div>
 
 
-                <div onClick={this.hideInfo2} style={{display: this.state.divInfo2, width: '14rem', height: '14rem'}}>
-                    <p className='infoDivParagraph'>
+                <div onClick={this.hideInfo2} style={{visibility: this.state.divInfo2, opacity: this.state.opacityInfo2,
+                    width: this.state.divInfoWidth2, height: this.state.divInfoHeight2, transition: 'opacity 2000ms, visibility 2000ms'}}>
+                    <p className='infoDivParagraph' style={{fontSize: this.state.fontSize2}}>
                         <strong>Tlenek węgla</strong> – jego toksyczność wynika z większego od tlenu (250–300 razy) powinowactwa
                         do hemoglobiny. Tworzy on połączenie zwane karboksyhemoglobiną, które jest trwalsze niż służąca do
                         transportu tlenu z płuc do tkanek oksyhemoglobina (połączenie tlenu z hemoglobiną).
@@ -416,13 +619,15 @@ class AirQualityModule extends React.Component{
                         <a href="https://pl.wikipedia.org/wiki/Tlenek_w%C4%99gla" target='_blank'>źródło</a>
                     </p>
                 </div>
-                <div className='divInfo' onClick={this.showInfo2} style={{display: this.state.hideDiv2}}>
+                <div className='divInfo' onClick={this.showInfo2} style={{visibility: this.state.hideDiv2,
+                    opacity: this.state.opacityData2, width: this.state.divDataWidth2}}>
                     <p>Wskaźnik co</p>
                     <p style={{fontWeight: '700', color: airCol2, fontSize: '.9rem'}}>{this.state.co}</p>
                 </div>
 
-                <div onClick={this.hideInfo3} style={{display: this.state.divInfo3, width: '14rem', height: '14rem'}}>
-                    <p className='infoDivParagraph'>
+                <div onClick={this.hideInfo3} style={{visibility: this.state.divInfo3, opacity: this.state.opacityInfo3,
+                    width: this.state.divInfoWidth3, height: this.state.divInfoHeight3, transition: 'opacity 2000ms, visibility 2000ms'}}>
+                    <p className='infoDivParagraph' style={{fontSize: this.state.fontSize3}}>
                         <strong>Dwutlenek azotu</strong> - brunatny, silnie toksyczny gaz o ostrym zapachu.
                         Tlenki azotu są odopowiedialne nie tylko za powstawanie smogu ale również za powiększanie się dzury
                         ozonowej. Głównymi źródłami emisji dwutlenku azotu są transport drogowy, energetyka zawodowa oraz lokalne systemy
@@ -431,13 +636,15 @@ class AirQualityModule extends React.Component{
                         <a href="http://www.powietrze.podkarpackie.pl/index.php/item-85/ct-menu-item-87/ct-menu-item-89" target='_blank'>źródło</a>
                     </p>
                 </div>
-                <div className='divInfo' onClick={this.showInfo3} style={{display: this.state.hideDiv3}}>
+                <div className='divInfo' onClick={this.showInfo3} style={{visibility: this.state.hideDiv3,
+                    opacity: this.state.opacityData3, width: this.state.divDataWidth3}}>
                     <p>Wskaźnik no2</p>
                     <p style={{fontWeight: '700', color: airCol5, fontSize: '.9rem'}}>{this.state.no2}</p>
                 </div>
 
-                <div onClick={this.hideInfo4} style={{display: this.state.divInfo4, width: '14rem', height: '14rem'}}>
-                    <p className='infoDivParagraph'>
+                <div onClick={this.hideInfo4} style={{visibility: this.state.divInfo4, opacity: this.state.opacityInfo4,
+                    width: this.state.divInfoWidth4, height: this.state.divInfoHeight4, transition: 'opacity 2000ms, visibility 2000ms'}}>
+                    <p className='infoDivParagraph' style={{fontSize: this.state.fontSize4}}>
                         <strong>Pył PM10</strong> składa się z mieszaniny cząstek zawieszonych w powietrzu, będących mieszaniną substancji organicznych i
                         nieorganicznych. Pył zawieszony może zawierać substancje toksyczne takie jak wielopierścieniowe węglowodory aromatyczne
                         (np. benzopireny), metale ciężkie oraz dioksyny i furany. Pył PM10 zawiera cząstki o średnicy mniejszej niż 10 mikrometrów,
@@ -446,13 +653,15 @@ class AirQualityModule extends React.Component{
                         <a href="http://sojp.wios.warszawa.pl/?page=pm" target='_blank'>źródło</a>
                     </p>
                 </div>
-                <div className='divInfo' onClick={this.showInfo4} style={{display: this.state.hideDiv4}}>
+                <div className='divInfo' onClick={this.showInfo4} style={{visibility: this.state.hideDiv4,
+                    opacity: this.state.opacityData4, width: this.state.divDataWidth4}}>
                     <p>Wskaźnik pm10</p>
                     <p style={{fontWeight: '700', color: airCol3, fontSize: '.9rem'}}>{this.state.pm10}</p>
                 </div>
 
-                <div onClick={this.hideInfo5} style={{display: this.state.divInfo5, width: '14rem', height: '14rem'}}>
-                    <p className='infoDivParagraph'>
+                <div onClick={this.hideInfo5} style={{visibility: this.state.divInfo5, opacity: this.state.opacityInfo5,
+                    width: this.state.divInfoWidth5, height: this.state.divInfoHeight5, transition: 'opacity 2000ms, visibility 2000ms'}}>
+                    <p className='infoDivParagraph' style={{fontSize: this.state.fontSize5}}>
                         <strong>Pył PM2,5</strong> zawiera cząstki o średnicy mniejszej niż 2,5 mikrometra, które mogą docierać do górnych dróg oddechowych,
                         płuc oraz przenikać do krwi. Docelowa wartość średnioroczna dla pyłu PM2,5 wynosi 25 µg/m3. Największą emisję pyłów powoduje spalanie
                         węgla w starych i często źle wyregulowanych kotłach i piecach domowych. Emisja pyłów powodowana jest również przez przemysł, ale ze
@@ -461,7 +670,8 @@ class AirQualityModule extends React.Component{
                         <a href="http://sojp.wios.warszawa.pl/?page=pm" target='_blank'>źródło</a>
                     </p>
                 </div>
-                <div className='divInfo' onClick={this.showInfo5} style={{display: this.state.hideDiv5}}>
+                <div className='divInfo' onClick={this.showInfo5} style={{visibility: this.state.hideDiv5,
+                    opacity: this.state.opacityData5, width: this.state.divDataWidth5}}>
                     <p>Wskaźnik pm2.5</p>
                     <p style={{fontWeight: '700', color: airCol4, fontSize: '.9rem'}}>{this.state.pm25}</p>
                 </div>

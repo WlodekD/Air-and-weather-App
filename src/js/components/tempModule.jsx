@@ -13,21 +13,14 @@ class TempModule extends React.Component{
     }
 
     componentDidMount(){
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(position => {
-
-                getAPI(position.coords.latitude, position.coords.longitude, (data) => {
-
-                    if(data !== false){
-
-                        this.setState({
-                            data: data
-                        });
-                    }
-                });
-            });
-        }
-    };
+        getAPI(this.props.lat, this.props.lon, (data) => {
+            if(data !== false){
+                this.setState({
+                    data: data
+                })
+            }
+        })
+    }
 
     showTempInC = () => {
         this.setState({

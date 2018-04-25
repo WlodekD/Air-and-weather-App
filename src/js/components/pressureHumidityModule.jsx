@@ -12,22 +12,16 @@ class PressHumModule extends React.Component{
     }
 
     componentDidMount(){
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(position => {
-
-                getAPI(position.coords.latitude, position.coords.longitude, (data) => {
-
-                    if(data !== false){
-                        this.setState({
-                            pressure: data.main.pressure,
-                            humidity: data.main.humidity,
-                            windDeg: data.wind.deg
-                        });
-                    }
-                });
-            });
-        }
-    };
+        getAPI(this.props.lat, this.props.lon, (data) => {
+            if(data !== false){
+                this.setState({
+                    pressure: data.main.pressure,
+                    humidity: data.main.humidity,
+                    windDeg: data.wind.deg
+                })
+            }
+        })
+    }
 
     render(){
 

@@ -10,20 +10,15 @@ class WindModule extends React.Component{
     }
 
     componentDidMount(){
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(position => {
-
-                getAPI(position.coords.latitude, position.coords.longitude, (data) => {
-                    if(data !== false){
-                        this.setState({
-                            windSpeed: data.wind.speed,
-                            windDeg: data.wind.deg
-                        });
-                    }
-                });
-            });
-        }
-    };
+        getAPI(this.props.lat, this.props.lon, (data) => {
+            if(data !== false){
+                this.setState({
+                    windSpeed: data.wind.speed,
+                    windDeg: data.wind.deg
+                })
+            }
+        })
+    }
 
     render(){
 
